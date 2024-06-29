@@ -1,0 +1,31 @@
+// desktop styles
+
+@import './assets/styles/Header.scss';
+@import './assets/styles/Footer.scss';
+
+
+// media styles
+
+@import './assets/styles/media-styles/Header-media.scss';
+@import './assets/styles/media-styles/Footer-media.scss';
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
