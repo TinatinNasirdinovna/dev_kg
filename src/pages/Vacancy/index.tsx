@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 
 const Vacancy = () => {
-    return (
-        <div>
-            Vacancy
-        </div>
-    );
+  return (
+    <div id="vacancy">
+      <div className="container">
+        <div className="vacancy">Vacancy</div>
+      </div>
+    </div>
+  );
 };
 
 export default Vacancy;
