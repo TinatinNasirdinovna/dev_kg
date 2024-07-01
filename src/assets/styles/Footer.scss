@@ -1,0 +1,32 @@
+#footer {
+    padding: 26px 0;
+    background: black;
+    .footer {
+        color: white;
+        svg {
+            filter: invert(1);
+        }
+        &--com {
+            display: flex;
+            &__text {
+                margin-top: 30px;
+                p {
+                    width: 70%;
+                    line-height: 28px;
+                }
+            }
+            &__socials {
+                color: grey;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                font-size: 22px;
+                svg {
+                    width: 38px;
+                    height: 28px;
+                }
+            }
+        }
+
+    }
+}
