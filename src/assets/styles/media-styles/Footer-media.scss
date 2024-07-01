@@ -1,0 +1,28 @@
+@media (max-width: 740px) {
+    #footer {
+        .footer{
+            &--com {
+                &__text {
+                    p {
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    #footer {
+        .footer{
+            &--com {
+                flex-direction: column;
+                &__text {
+                    p {
+                        width: 90%;
+                    }
+                }
+            }
+        }
+    }
+}
