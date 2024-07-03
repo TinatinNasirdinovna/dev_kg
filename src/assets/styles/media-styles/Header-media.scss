@@ -46,6 +46,13 @@
                     color: grey;
                 }
             }
+            &--btn {
+                width: 54px;
+                height: 28px;   
+                button {
+                    display: none;
+                }
+            }
         }
     }
 }

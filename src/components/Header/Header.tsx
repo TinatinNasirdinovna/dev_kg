@@ -21,8 +21,8 @@ const Header = () => {
               <TbMenu2 />
             </div>
             <nav className="header--nav">
-              <NavLink to={"/vacancies"}>Вакансии</NavLink>
-              <NavLink to={"/eventes"}>Мероприятия</NavLink>
+              <NavLink to={"/"}>Вакансии</NavLink>
+              <NavLink to={"/events"}>Мероприятия</NavLink>
               <NavLink to={"/video"}>Видео</NavLink>
               <NavLink to={"/organization"}>Организации</NavLink>
               <NavLink to={"/community"}>Сообщество</NavLink>
@@ -44,7 +44,7 @@ const Header = () => {
             </span>
           </div>
           <nav className="menu--nav">
-          <Link to={"/vacancies"}>Вакансии</Link>
+          <Link to={"/"}>Вакансии</Link>
               <NavLink to={"/events"}>Мероприятия</NavLink>
               <NavLink to={"/video"}>Видео</NavLink>
               <NavLink to={"/organization"}>Организации</NavLink>
