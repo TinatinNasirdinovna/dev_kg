@@ -1,14 +1,15 @@
-// desktop styles
+@import "../src/assets/styles/Header.scss";
+@import "../src/assets/styles/Footer.scss";
+@import "../src/assets/styles/Hero.scss";
+@import "../src//assets/styles/Vacancies.scss";
+@import "../src//assets/styles/Eventes.scss";
 
-@import './assets/styles/Header.scss';
-@import './assets/styles/Footer.scss';
-
-
-// media styles
 
 @import './assets/styles/media-styles/Header-media.scss';
 @import './assets/styles/media-styles/Footer-media.scss';
 @import './assets/styles/media-styles/Menu.scss';
+@import "../src/assets/styles/media-styles/Vacancies.scss";
+@import "../src/assets/styles/media-styles/Eventes.scss";
 
 
 * {
