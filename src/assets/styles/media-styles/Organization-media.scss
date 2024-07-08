@@ -1,0 +1,76 @@
+@media (max-width: 700px) {
+    #organizations {
+        .organizations {
+            &--cards {
+                &__card {
+                    padding: 15px;
+                    &--title {
+                        gap: 15px;
+                        img {
+                            width: 26px;
+                            height: 26px;
+                        }
+                        &__company {
+                            h3 {
+                                font-size: 12px;
+                            }
+                            h2 {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                    &--about {
+                        gap: 15px;
+                        &__block {
+                            h3 {
+                                font-size: 10px;
+                            }
+                            h2 {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    #organizations {
+        .organizations {
+            &--cards {
+                &__card {
+                    height: 50px;
+                    padding: 5px;
+                    &--title {
+                        gap: 10px;
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                        &__company {
+                            h3 {
+                                font-size: 10px;
+                            }
+                            h2 {
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                    &--about {
+                        gap: 10px;
+                        &__block {
+                            h3 {
+                                font-size: 8px;
+                            }
+                            h2 {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
