@@ -1,0 +1,182 @@
+@media (max-width: 1200px) {
+    #video {
+       
+        .video {
+            &--cards {
+                &__card {
+                    width: 48%;
+                    h1 {
+                        font-size: 28px;
+                        width: 300px;
+                    }
+                    &--titles {
+                        h2 {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 945px) {
+    #video {
+        .video {
+            &--cards {
+                gap: 10px;
+                &__card {
+                    width: 48%;
+                   h1 {
+                    margin: 20px 27px 6px 27px;
+                    font-size: 22px;
+                    width: 240px;
+                   }
+                   &--titles {
+                    h3 {
+                        margin: 0 27px;
+                    }
+                    h2 {
+                        margin: 0 27px 20px 27px;
+                    }
+                   }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 840px) {
+    #video {
+        .video {
+            &--cards {
+                gap: 20px;
+                &__card {
+                    width: 48%;
+                   h1 {
+                    margin: 20px 27px 6px 27px;
+                    font-size: 18px;
+                    width: 200px;
+                   }
+                   &--titles {
+                    margin: 10px 27px 20px 27px;
+                    gap: 5px;
+                    h3 {
+                        margin: 0px;
+                        font-size: 12px;
+                    }
+                    h2 {
+                        margin: 0px;
+                        font-size: 13px;
+                    }
+                   }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 630px) {
+    #video {
+        .video {
+            padding: 0 0 30px 0;
+            h2 {
+                margin-bottom: 15px;
+            }
+            &--cards {
+                gap: 20px;
+                &__card {
+                    width: 100%;
+                   h1 {
+                    margin: 20px 27px 6px 27px;
+                    font-size:22px;
+                    width: 90%;
+                   }
+                   &--titles {
+                    gap: 30px;
+                    h3 {
+                        font-size: 16px;
+                    }
+                    h2 {
+                        font-size: 18px;
+                    }
+                   }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 480px) {
+    #video {
+        .video {
+            &--btn {
+                button {
+                    padding: 8px 15px;
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+            }
+            h2 {
+                font-size: 20px;
+            }
+            &--cards {
+                gap: 20px;
+                &__card {
+                    width: 100%;
+                   h1 {
+                    margin: 20px 17px 6px 17px;
+                    font-size:18px;
+                    width: 90%;
+                   }
+                   &--titles {
+                    margin: 10px 17px;
+                    gap: 30px;
+                    h3 {
+                        font-size: 14px;
+                    }
+                    h2 {
+                        font-size: 15px;
+                    }
+                   }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 345px) {
+    #video {
+        .video {
+            &--btn {
+                button {
+                    padding: 6px 10px;
+                    font-size: 10px;
+                    font-weight: 600;
+                }
+            }
+            h2 {
+                font-size: 16px;
+            }
+            &--cards {
+                gap: 10px;
+                &__card {
+                    width: 100%;
+                   h1 {
+                    margin: 10px 7px 6px 7px;
+                    font-size:12px;
+                    width: 90%;
+                   }
+                   &--titles {
+                    margin: 0px 7px;
+                    gap: 20px;
+                    h3 {
+                        font-size: 10px;
+                    }
+                    h2 {
+                        font-size: 11px;
+                    }
+                   }
+                }
+            }
+        }
+    }
+}
