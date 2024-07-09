@@ -1,0 +1,162 @@
+@media (max-width: 1190px) {
+    .events {
+
+        
+        .image {
+         img {
+
+         }   
+         .text {
+            width: 1050px;
+         }
+        }
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .events {
+        .btn {
+            button {
+                margin-right: 20px;
+            }
+         
+        }
+        .image {
+         img {
+
+         }   
+         .text {
+            width: 1000px;
+         }
+        } 
+    }
+}
+
+@media (max-width: 990px) {
+    .events {
+
+        .btn {
+            button {
+            margin-right: 40px;
+
+            }
+        }
+        .image {
+         img {
+
+         }   
+         .text {
+            width: 900px;
+         }
+        } 
+    }
+}
+
+
+@media (max-width: 870px) {
+    .events {
+        .btn {
+
+           button {
+            margin-right: 50px;
+           }
+        }
+        .image {
+         img {
+         
+         }   
+         .text {
+            width: 770px;
+
+            h1 {
+                font-size: 24px;
+            }
+
+         }
+        } 
+    }
+}
+
+@media (max-width: 750px) {
+    .events {
+        .image {
+         img {
+
+         }   
+         .text {
+            width: 700px;
+         }
+        } 
+    }
+}
+
+
+@media (max-width: 600px) {
+    .events {
+        .image {
+         img {
+
+         }   
+         .text {
+            width: 597px;
+
+            h1 {
+                font-size: 21px;
+            }
+         }
+        } 
+    }
+}
+
+@media (min-width: 0) and ( max-width: 450px) {
+    .events {
+        .image {
+         
+         .text {
+            width: 448px;
+
+        h1 {
+            font-size: 15px;
+        }
+
+        h3 {
+            font-size: 15px;
+            
+        }
+
+        h4 {
+
+            span {
+                font-size: 15px
+            }
+        }
+
+         }
+        } 
+    }
+}
+
+@media ( max-width: 330px) {
+    .events {
+        .image {
+         img {
+
+         }   
+         .text {
+            width: 348px;
+
+
+
+            
+        h4 {
+
+            span {
+                font-size: 11px;
+                left: -200px;
+            }
+        }
+         }
+        } 
+    }
+}
