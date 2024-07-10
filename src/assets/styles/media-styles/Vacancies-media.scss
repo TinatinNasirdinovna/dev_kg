@@ -1,0 +1,51 @@
+
+  
+  @media (min-width: 0) and (max-width: 900px) {
+    .jobs-item .information {
+      flex-wrap: wrap;
+    }
+    .jobs-item .information div.jobs-item-field.company {
+      flex: 0 0 50%;
+    }
+    .jobs-item .information div.jobs-item-field.position {
+      flex: 0 0 50%;
+    }
+    .jobs-item .information div.jobs-item-field.price {
+      flex: 0 0 50%;
+    }
+    .jobs-item .information div.jobs-item-field.type {
+      flex: 0 0 50%;
+    }
+    .jobs-item .jobs-item-field :nth-child(n-2) {
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media (min-width: 0) and (max-width: 576px) {
+    .content {
+      padding: 10px;
+    }
+    .jobs-item .jobs-item-field {
+      padding-right: 10px;
+      margin-bottom: 10px;
+    }
+    .jobs-item .jobs-item-field.icon {
+      align-items: flex-start;
+      flex: 0 0 50px;
+    }
+    .jobs-item .information div.jobs-item-field.company {
+      flex: 0 0 100%;
+    }
+    .jobs-item .information div.jobs-item-field.position{
+      flex: 0 0 100%;
+    }
+    .jobs-item .information div.jobs-item-field.price {
+      flex: 0 0 100%;
+    }
+    .jobs-item .information div.jobs-item-field.type {
+      flex: 0 0 100%;
+    }
+  }
+
+
+
