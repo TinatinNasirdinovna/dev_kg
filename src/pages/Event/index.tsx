@@ -1,31 +1,39 @@
 import React from "react";
 
-const Event = () => {
+
+
+function Events() {
   return (
     <div id="events">
-      <div className="events">
-        <div className="btn">
-          <button>Дабавить мероприятие</button>
+      <div className="container">
+        <div className="btn1">
+          <button>Добавить мероприятиe</button>
         </div>
-        <div className="image">
-          <div className="text">
-            <h2>25 августа 2024 17:00</h2>
-            <h1>InkubasiaLAB 2024’s Machine Learning AI Bootcamp</h1>
-            <h3>
-              Организатор <span>InkubasiaLAB</span>
-            </h3>
-            <h4>
-              Локация <span>Коворкинг-резорт ololoAkJol</span>
-            </h4>
+        <div className="events">
+          <div className="events--foto">
+          <img src="https://devkg.com/images/events/e975ab09a375897590241aaec11d51fa.png" data-v-17b3db24="img"/>
+            <div className="events--foto__text">
+              <h4>
+                25 августа 2024 <span>17:00</span>
+              </h4>
+              <h1>InkubasiaLAB 2024’s Machine Learning AI Bootcamp</h1>
+
+              <div className="events--foto__text--par">
+                <div className="events--foto__text--par__kor1">
+                  <h6>Организатор</h6>
+                  <h2>InkubasiaLAB</h2>
+                </div>
+                <div className="events--foto__text--par__kor2">
+                  <h6>Когда</h6>
+                  <h2>Коворкинг-резорт ololoAkJol</h2>
+                </div>
+              </div>
+            </div>
           </div>
-          <img
-            src="https://devkg.com/images/events/e975ab09a375897590241aaec11d51fa.png"
-            data-v-17b3db24=""
-          />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Event;
+export default Events

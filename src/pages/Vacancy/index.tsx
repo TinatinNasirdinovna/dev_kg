@@ -1,73 +1,71 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Vacancy = () => {
-  return (
-    <div id="vacansies">
-      <div className="vacansies">
-        <div className="btn">
-          <button>Дабавить вакасию</button>
-        </div>
-      </div>
-      <div className="bloc">
-        <Link to={"/"}>
-          <div className="text-nav">
-            <h4>
-              Компония{" "}
-              <span>
-                OcOO "Грин Телеком <br /> Сервис" (O!Dengi)
-              </span>
-            </h4>
-            <h4>
-              Должность <span>Дата инженер</span>
-            </h4>
-            <h4>
-              Оклад <span>От 90000 KGS в месяц</span>
-            </h4>
-            <h4>
-              Тип <span>Офис / Бишкек</span>
-            </h4>
-          </div>
-        </Link>
-        <div className="image">
-          <img
-            data-v-7ad410c8=""
-            src="https://devkg.com/images/organizations/dbbbb77228b5c8b9b905267da3208e0d.png"
-            alt="img"
-          />
-        </div>
-      </div>
 
-      <div className="bloc2">
-        <Link to={"/"}>
-          <div className="text-nav2">
-            <h4>
-              Компония{" "}
-              <span>
-                OcOO "Грин Телеком <br /> Сервис" (O!Dengi)
-              </span>
-            </h4>
-            <h4>
-              Должность <span>Дата инженер</span>
-            </h4>
-            <h4>
-              Оклад <span>От 90000 KGS в месяц</span>
-            </h4>
-            <h4>
-              Тип <span>Офис / Бишкек</span>
-            </h4>
+const Vacancies = () => {
+    return (
+        <>
+        <div id="vacancies">
+          <div className="container">
+            <div className="vacancies">
+              <div className="vacancies__content">
+                <div className="filter">
+                  <Link to={"/"}>
+                    <button>
+                      Добавить вакансию
+                    </button>
+                  </Link>
+                </div>
+                <div className="jobs-list">
+                  <a
+                    href="/ru/jobs/hr-menedzher-validon-agency-14277"
+                    className="link">
+                    <div className="jobs-item content">
+                      <div className="jobs-item-field icon">
+                        <div className="preview images" >
+                          <picture>
+                            <img
+                              src="https://devkg.com/images/organizations/886e28d889f4c24ea73c66b80174110f.webp"
+                              alt=""
+                            />
+                          </picture>
+                        </div>
+                      </div>
+                      <div className="information">
+                        <div className="jobs-item-field company">
+                          <span className="label">
+                            Компания
+                          </span>
+                          Validon Agency
+                        </div>
+                        <div className="jobs-item-field position">
+                          <span className="label">
+                            Должность
+                          </span>
+                          Нr менеджер
+                        </div>
+                        <div className="jobs-item-field price">
+                          <span className="label">
+                            Оклад
+                          </span>
+                          От 60000 RUB в месяц
+                        </div>
+                        <div className="jobs-item-field type">
+                          <span className="label">
+                            Тип
+                          </span>
+                          Удаленная работа
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-        </Link>
-        <div className="image2">
-          <img
-            data-v-7ad410c8=""
-            src="https://devkg.com/images/organizations/63605c9e69fa303f894121357cf84e2a.png"
-            alt="img"
-          />
         </div>
-      </div>
-    </div>
-  );
+      </>
+    );
 };
 
-export default Vacancy;
+export default Vacancies;
