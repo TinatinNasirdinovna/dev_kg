@@ -1,7 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const Organizations = () => {
+
+const nav = useNavigate()
+
   return (
     <div id="organizations">
       <div className="container">
@@ -12,7 +16,7 @@ const Organizations = () => {
                 <img src="https://devkg.com/images/organizations/c0814e899a66d41ede3aad818e921946.webp" alt="img" />
                 <div className="organizations--cards__card--title__company">
                   <h3>Компания</h3>
-                  <h2>The Palm</h2>
+                  <h2 onClick={() => nav('/detail')}>The Palm</h2>
                 </div>
               </div>
               <div className="organizations--cards__card--about">
@@ -35,7 +39,7 @@ const Organizations = () => {
                 <img src="https://devkg.com/images/organizations/c0814e899a66d41ede3aad818e921946.webp" alt="img" />
                 <div className="organizations--cards__card--title__company">
                   <h3>Компания</h3>
-                  <h2>The Palm</h2>
+                  <h2 onClick={() => nav('/detail')}>The Palm</h2>
                 </div>
               </div>
               <div className="organizations--cards__card--about">

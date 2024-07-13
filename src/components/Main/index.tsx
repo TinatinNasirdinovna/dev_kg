@@ -5,7 +5,8 @@ import Event from '../../pages/Event';
 import Video from '../../pages/Video';
 import Organizations from '../../pages/Organizations';
 import Community from '../../pages/Community';
-import Vacancies from '../Vacancies/Vacancies';
+import Vacancies from '../../pages/Vacancy';
+import DetailPage from '../../pages/DetailPage';
 
 const Main = () => {
     return (
@@ -16,6 +17,7 @@ const Main = () => {
                 <Route path='/video' element={<Video/>}/>
                 <Route path='/organization' element={<Organizations/>}/>
                 <Route path='/community' element={<Community/>}/>
+                <Route path='/detail' element={<DetailPage/>}/>
             </Routes>
         </div>
     );
