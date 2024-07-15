@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Video = () => {
+  const nav = useNavigate()
   return (
     <div id="video">
       <div className="container">
@@ -10,7 +12,7 @@ const Video = () => {
           </div>
           <h2>Все видео</h2>
           <div className="video--cards">
-            <div className="video--cards__card">
+            <div className="video--cards__card" onClick={() => nav('/videoDetail') }>
               <h1>
                 Кибирд (Keybeard) #43 – Синдром самозванца в IT 2023 (feat.
                 Даниил Вартанов)
@@ -31,7 +33,7 @@ const Video = () => {
                 alt="img"
               />
             </div>
-            <div className="video--cards__card">
+            <div className="video--cards__card" onClick={() => nav('/videoDetail') }>
               <h1>
               ChatGPT — революция или мода? Как нейросети могут помочь в работе
               </h1>
@@ -51,7 +53,7 @@ const Video = () => {
                 alt="img"
               />
             </div>
-            <div className="video--cards__card">
+            <div className="video--cards__card" onClick={() => nav('/videoDetail') }>
               <h1>
                 Кибирд (Keybeard) #43 – Синдром самозванца в IT 2023 (feat.
                 Даниил Вартанов)

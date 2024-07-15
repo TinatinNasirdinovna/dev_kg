@@ -28,6 +28,7 @@
       justify-content: space-between;
       &__card {
         position: relative;
+        cursor: pointer;
         color: white;
         width: 48%;
         overflow: hidden;
