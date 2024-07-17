@@ -10,12 +10,14 @@ import DetailPage from "../../pages/DetailPage";
 import DetailPosition from "../../pages/DetailPosition";
 import VideoDetail from "../../pages/VideoDetail";
 import EventDetals from "../../pages/EventDetals";
+import Hero from "../../pages/Hero";
 
 const Main = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Vacancies />} />
+        <Route path="/" element={<Hero />} />
+        <Route path="/vacancy" element={<Vacancies />} />
         <Route path="/events" element={<Event />} />
         <Route path="/video" element={<Video />} />
         <Route path="/organization" element={<Organizations />} />
@@ -24,6 +26,7 @@ const Main = () => {
         <Route path="/detailPosition" element={<DetailPosition />} />
         <Route path="/videoDetail" element={<VideoDetail />} />
         <Route path="/eventDetals" element={<EventDetals />} />
+        <Route path="" element={<EventDetals />} />
 
       </Routes>
     </div>
