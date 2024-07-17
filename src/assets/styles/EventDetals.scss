@@ -1,0 +1,119 @@
+#event-detal {
+    margin: 0;
+    padding: 0;
+
+    .event-detal {
+        .imagess {
+         position: relative;
+            padding: 10px 0px;
+            img {
+                width: 100%;
+                height: 400px;
+            }
+        }
+        .titles {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            color: white;
+            backdrop-filter: blur(10px);
+            background-color: rgba(0,0,0,.3);
+            width: 100%;
+            height: 400px;
+            top: 90px;
+
+            .texth2 {
+                display: none;
+                span {
+                    position: absolute;
+            top: 15px;
+            left: 154px;
+            font-size: 35px;
+            font-weight: 800;
+            color: white;
+                }
+            }
+
+           h1 {
+            position: absolute;
+            top: 15px;
+            left: 154px;
+            font-size: 35px;
+            font-weight: 800;
+            color: white;
+           }
+           h2 {
+            position: absolute;
+            top: 310px;
+            left: 150px;
+            display: flex;
+            flex-direction: column;
+            font-size: 20px;
+            span {
+          font-weight: bold;
+            }
+           }
+
+           h3 {
+            position: absolute;
+            top: 310px;
+            left: 320px;
+            display: flex;
+           flex-direction: column;
+           font-size: 20px;
+           span {
+            font-weight: bold;
+              }
+           }
+
+           h4 {
+            position: absolute;
+            top: 310px;
+            left: 500px;
+            display: flex;
+            flex-direction: column;
+            font-size: 20px;
+            span {
+                font-weight: bold;
+                  }
+           }
+           .foto {
+            img {
+                position: absolute;
+                width: 400px;
+               top: 80px;
+                left: 950px;
+
+            }
+        }
+        }
+     
+        .btn {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-left: 130px;
+            margin-top: 20px;
+            button {
+                margin: 0 0 0 20px;
+              padding: 12px 35px;
+               border: none;
+              background: #6fcf97;
+             color: #fff;
+           font-size: 14px;
+            margin-bottom: 20px;
+           cursor: pointer;
+            }
+        }
+        .text {
+      margin: 50px 0px;
+            p {
+                line-height: 50px;
+                margin-left: 150px;
+                font-size: 20px;
+                color: rgb(19, 19, 38);
+
+            }
+        }
+    }
+}

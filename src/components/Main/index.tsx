@@ -9,6 +9,7 @@ import Vacancies from "../../pages/Vacancy";
 import DetailPage from "../../pages/DetailPage";
 import DetailPosition from "../../pages/DetailPosition";
 import VideoDetail from "../../pages/VideoDetail";
+import EventDetals from "../../pages/EventDetals";
 
 const Main = () => {
   return (
@@ -22,6 +23,8 @@ const Main = () => {
         <Route path="/detail" element={<DetailPage />} />
         <Route path="/detailPosition" element={<DetailPosition />} />
         <Route path="/videoDetail" element={<VideoDetail />} />
+        <Route path="/eventDetals" element={<EventDetals />} />
+
       </Routes>
     </div>
   );
