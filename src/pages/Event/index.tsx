@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -9,6 +10,7 @@ function Events() {
         <div className="btn1">
           <button>Добавить мероприятиe</button>
         </div>
+        <Link to={"/eventDetals"}>
         <div className="events">
           <div className="events--foto">
           <img src="https://devkg.com/images/events/e975ab09a375897590241aaec11d51fa.png" data-v-17b3db24="img"/>
@@ -31,6 +33,7 @@ function Events() {
             </div>
           </div>
         </div>
+        </Link>
       </div>
     </div>
   )
