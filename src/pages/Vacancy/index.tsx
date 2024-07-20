@@ -1,10 +1,11 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { VacancyList } from "./VacancyList";
+import useFetch from "../../components/hooks/useFetch";
 
-const Vacancies = () => {
-  const nav = useNavigate();
+const Vacancy = () => {
+  const {data, loding} = useFetch()
   return (
-    <>
       <div id="vacancies">
         <div className="container">
           <div className="vacancies">
@@ -14,53 +15,29 @@ const Vacancies = () => {
                   <button>Добавить вакансию</button>
                 </Link>
               </div>
-              <div className="jobs-list">
-                <div className="jobs-item content">
-                  <div className="jobs-item-field icon">
-                    <div className="preview images">
-                      <picture>
-                        <img
-                          src="https://devkg.com/images/organizations/886e28d889f4c24ea73c66b80174110f.webp"
-                          alt=""
-                        />
-                      </picture>
-                    </div>
-                  </div>
-                  <div className="information">
-                    <div
-                      className="jobs-item-field company"
-                      onClick={() => nav("/detailPosition")}
-                    >
-                      <span className="label">Компания</span>
-                      Validon Agency
-                    </div>
-                    <div className="jobs-item-field position" onClick={() => nav("/detailPosition")}>
-                      <span className="label">Должность</span>
-                      Нr менеджер
-                    </div>
-                    <div
-                      className="jobs-item-field price"
-                      onClick={() => nav("/detailPosition")}
-                    >
-                      <span className="label">Оклад</span>
-                      От 60000 RUB в месяц
-                    </div>
-                    <div
-                      className="jobs-item-field type"
-                      onClick={() => nav("/detailPosition")}
-                    >
-                      <span className="label">Тип</span>
-                      Удаленная работа
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {
+                data && data.map((job: any) => {
+                  return (
+                    <VacancyList 
+                    key={job.id}
+                    organization_name = {job.organization_name}
+                    position = {job.position}
+                    paymentType = {job.paymentType}
+                    price_from = {job. price_from}
+                    price_to={job.price_to}
+                    type = {job.type}
+                    city = {job.city}
+                    currency = {job.currency}
+                    organization_icon = {job.organization_icon}
+                    />
+                  )
+                })
+              }
             </div>
           </div>
         </div>
       </div>
-    </>
   );
 };
 
-export default Vacancies;
+export default Vacancy;
