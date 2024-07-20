@@ -5,19 +5,19 @@ import Event from "../../pages/Event";
 import Video from "../../pages/Video";
 import Organizations from "../../pages/Organizations";
 import Community from "../../pages/Community";
-import Vacancies from "../../pages/Vacancy";
 import DetailPage from "../../pages/DetailPage";
 import DetailPosition from "../../pages/DetailPosition";
 import VideoDetail from "../../pages/VideoDetail";
 import EventDetals from "../../pages/EventDetals";
 import Hero from "../../pages/Hero";
+import Vacancies from "../../pages/Vacancy";
 
 const Main = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/vacancy" element={<Vacancies />} />
+        <Route path="/vacancies" element={<Vacancy />} />
         <Route path="/events" element={<Event />} />
         <Route path="/video" element={<Video />} />
         <Route path="/organization" element={<Organizations />} />
