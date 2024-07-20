@@ -12,7 +12,6 @@ const Vacancies = () => {
     return <div>Loading</div>;
   }
   return (
-    <>
       <div id="vacancies">
         <div className="container">
           <div className="vacancies">
@@ -45,8 +44,8 @@ const Vacancies = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 
 export default Vacancies;
+

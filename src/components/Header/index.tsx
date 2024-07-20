@@ -33,7 +33,7 @@ const Header: React.FC = () => {
             <TbMenu2 />
           </div>
           <nav className="header--nav">
-            <NavLink to={"/vacancy"}>Вакансии</NavLink>
+            <NavLink to={"/vacancies"}>Вакансии</NavLink>
             <NavLink to={"/events"}>Мероприятия</NavLink>
             <NavLink to={"/video"}>Видео</NavLink>
             <NavLink to={"/organization"}>Организации</NavLink>
