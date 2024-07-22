@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { FaLess } from "react-icons/fa"
 
 const jobs_url = 'http://3.38.98.134/jobs'
+// const jobs_url = 'http://3.38.98.134/jobs'
 
 
 const useFetch = ({
