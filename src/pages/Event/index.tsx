@@ -6,7 +6,7 @@ function Events() {
 const events_url = 'http://3.38.98.134/events' 
       
 const  { data, loading } = useFetch({url: events_url});
-console.log(data, 'events');
+// console.log(data, 'events');
 
 if (loading) {
   return <div>Loading</div>;
