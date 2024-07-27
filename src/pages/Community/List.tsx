@@ -1,13 +1,16 @@
-import React from "react";
 import { FaTelegramPlane } from "react-icons/fa";
 
-const List = () => {
+const List = ({
+  label,
+} = {
+  label: ''
+}) => {
   return (
     <div className="community--telegram__blocks--block">
       <span>
         <FaTelegramPlane />
       </span>
-      <p>Relocate & Remote</p>
+      <p>{label}</p>
     </div>
   );
 };
