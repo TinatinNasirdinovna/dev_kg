@@ -3,14 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import VacancyList from "./VacancyList";
 import useFetch from "../../hooks/useFetch";
 import { log } from "console";
+import Loading from "../../ui/Loading";
 
 const Vacancies = () => {
   const { data, loading } = useFetch();
-  console.log(data);
 
   if (loading) {
-    return <div>Loading</div>;
+    return <Loading/>;
   }
+  
   return (
     <>
       <div id="vacancies">

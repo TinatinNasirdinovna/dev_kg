@@ -19,9 +19,7 @@ const useFetch = ({
         try{
             const response = await fetch(url)
             const data = await response.json()
-            if(data.statusCode === 200) {
-                console.log(data);
-                
+            if(data.statusCode === 200) {                
                 setData(data.data);
             }
         } catch(error) {

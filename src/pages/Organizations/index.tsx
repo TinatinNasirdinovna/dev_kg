@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import OrganizationList from "./OrganizationList";
 import useFetch from "../../hooks/useFetch";
+import Loading from "../../ui/Loading";
 
 const Organizations = () => {
   const { data, loading } = useFetch({
@@ -9,9 +10,8 @@ const Organizations = () => {
   });
 
   if (loading) {
-    return <div>Loading</div>;
+    return <Loading/>;
   }
-  console.log(data);
   
   return (
     <div id="organizations">
