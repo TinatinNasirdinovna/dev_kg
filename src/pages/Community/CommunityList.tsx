@@ -4,8 +4,13 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaGithubAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { ICommunity, IData } from "../../types";
 
-const CommunityList = ({ data }: { data: any }) => {
+interface IComData {
+  data: IData[];
+}
+
+const CommunityList = ({ data }: IComData) => {
   const devkg = data?.[0]?.devkg || [];
   const telegram_chats = data?.[0]?.telegram_chats || [];
   const telegram_channels = data?.[0]?.telegram_channels || [];
@@ -13,139 +18,120 @@ const CommunityList = ({ data }: { data: any }) => {
   const facebook = data?.[0]?.facebook || [];
   const youtube = data?.[0]?.youtube || [];
   const github = data?.[0]?.github || [];
-  console.log(data);
 
   return (
     <>
       <div className="community--telegram">
         <h1>Наши ресурсы в Telegram</h1>
         <div className="community--telegram__blocks">
-          {telegram_channels.map(
-            (item: { label: string; value: string }, index: number) => (
-             <Link to={`${item.value}`}>
+          {telegram_channels.map((item: ICommunity, index: number) => (
+            <Link to={`${item.value}`}>
               <div className={`community--telegram__blocks--block `}>
                 <span>
                   <FaTelegramPlane />
                 </span>
                 <p>{item.label}</p>
               </div>
-             </Link>
-            )
-          )}
+            </Link>
+          ))}
         </div>
       </div>
       <div className="community--telegram">
         <h1>Телеграм чаты</h1>
         <div className="community--telegram__blocks">
-          {telegram_chats.map(
-            (item: { label: string; value: string }, index: number) => (
-             <Link to={`${item.value}`}>
+          {telegram_chats.map((item: ICommunity) => (
+            <Link to={`${item.value}`}>
               <div className={`community--telegram__blocks--block `}>
                 <span>
                   <FaTelegramPlane />
                 </span>
                 <p>{item.label}</p>
               </div>
-             </Link>
-            )
-          )}
+            </Link>
+          ))}
         </div>
       </div>
       <div className="community--telegram">
         <h1>Телеграм каналы</h1>
         <div className="community--telegram__blocks">
-          {devkg.map(
-            (item: { label: string; value: string }, index: number) => (
-              <Link to={item.value}>
+          {devkg.map((item: ICommunity, index: number) => (
+            <Link to={item.value}>
               <div className={`community--telegram__blocks--block `}>
                 <span>
                   <FaTelegramPlane />
                 </span>
                 <p>{item.label}</p>
               </div>
-              </Link>
-            )
-          )}
+            </Link>
+          ))}
         </div>
       </div>
       <div className="community--telegram">
         <h1>Веб-сайты</h1>
         <div className="community--telegram__blocks">
-          {websites.map(
-            (item: { label: string; value: string }, index: number) => (
-             <Link to={item.value}>
+          {websites.map((item: ICommunity, index: number) => (
+            <Link to={item.value}>
               <div
-                className={`community--telegram__blocks--block `}
-                style={{ background: "#6fcf97" }}
+                className={`community--telegram__blocks--block community--telegram__blocks--blockweb `}
               >
                 <span>
                   <SiWebmoney />
                 </span>
                 <p>{item.label}</p>
               </div>
-             </Link>
-            )
-          )}
+            </Link>
+          ))}
         </div>
       </div>
       <div className="community--telegram">
         <h1>Facebook</h1>
         <div className="community--telegram__blocks">
-          {facebook.map(
-            (item: { label: string; value: string }, index: number) => (
-             <Link to={item.value}>
+          {facebook.map((item: ICommunity, index: number) => (
+            <Link to={item.value}>
               <div
-                className={`community--telegram__blocks--block `}
-                style={{ background: "#3b5998" }}
+                className={`community--telegram__blocks--block community--telegram__blocks--blockfacebook `}
               >
                 <span>
                   <FaFacebookSquare />
                 </span>
                 <p>{item.label}</p>
               </div>
-             </Link>
-            )
-          )}
+            </Link>
+          ))}
         </div>
       </div>
       <div className="community--telegram">
         <h1>YouTube</h1>
         <div className="community--telegram__blocks">
-          {youtube.map(
-            (item: { label: string; value: string }, index: number) => (
-             <Link to={item.value}>
+          {youtube.map((item: ICommunity, index: number) => (
+            <Link to={item.value}>
               <div
-                className={`community--telegram__blocks--block `}
-                style={{ background: "red" }}
+                className={`community--telegram__blocks--block community--telegram__blocks--blockred`}
               >
                 <span>
                   <FaYoutube />
                 </span>
                 <p>{item.label}</p>
               </div>
-             </Link>
-            )
-          )}
+            </Link>
+          ))}
         </div>
       </div>
       <div className="community--telegram">
         <h1>GitHub</h1>
         <div className="community--telegram__blocks">
-          {github.map(
-            (item: { label: string; value: string }, index: number) => (
-              <Link to={item.value}>
+          {github.map((item: ICommunity, index: number) => (
+            <Link to={item.value}>
               <div
-                className={`community--telegram__blocks--block `}
-                style={{ background: "#262626" }}
+                className={`community--telegram__blocks--block community--telegram__blocks--blockgit `}
               >
                 <span>
                   <FaGithubAlt />
                 </span>
                 <p>{item.label}</p>
               </div>
-              </Link>
-            )
-          )}
+            </Link>
+          ))}
         </div>
       </div>
     </>

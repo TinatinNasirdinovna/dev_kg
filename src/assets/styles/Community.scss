@@ -22,6 +22,7 @@
           background: rgba(74, 164, 220, 0.851);
           color: #fff;
           font-size: 16px;
+          
           span {
             font-size: 22px;
             color: white;
@@ -33,6 +34,18 @@
             align-items: center;
             justify-content: center;
           }
+        }
+        &--blockred {
+          background: red;
+        }
+        &--blockfacebook {
+          background: #3b5998;
+        }
+        &--blockweb {
+          background: #6fcf97;
+        }
+        &--blockgit {
+          background: #262626;
         }
       }
     }
