@@ -1,39 +1,40 @@
 #community {
-    .community {
-        &--telegram {
-            padding: 50px 0;
-            h1 {
-                color: #a7b0c2;
-                padding-bottom: 20px;
-                font-size: 24px;
-                letter-spacing: .03em;
-                font-weight: 700;
-            }
-            &__blocks {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                gap: 10px;
-                &--block {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    height: 55px;
-                    right: 0;
-                    background: rgb(74 165 220 / 98%);                
-                    color: #fff;
-                    font-size: 16px;
-                    span {
-                        font-size: 22px;
-                        color: white;
-                        background-color: rgba(59, 145, 191, 0.98);
-                        height: 100%;
-                        width: 20%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                }
-            }
+  .community {
+    &--telegram {
+      padding: 50px 0;
+      h1 {
+        color: #a7b0c2;
+        padding-bottom: 20px;
+        font-size: 24px;
+        letter-spacing: 0.03em;
+        font-weight: 700;
+      }
+      &__blocks {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        &--block {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          height: 55px;
+          right: 0;
+          background: rgba(74, 164, 220, 0.851);
+          color: #fff;
+          font-size: 16px;
+          span {
+            font-size: 22px;
+            color: white;
+            height: 100%;
+            opacity: 2;
+            width: 20%;
+            display: flex;
+            background: rgba(0,0,0,.2);
+            align-items: center;
+            justify-content: center;
+          }
         }
+      }
     }
+  }
 }
