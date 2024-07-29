@@ -1,7 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import VideoList from "./VideoList";
+import Loading from "../../ui/Loading";
 
 const Video = () => {
   const meetups_url = 'http://3.38.98.134/meetups'
@@ -9,7 +9,7 @@ const Video = () => {
   const {data, loading} = useFetch({url: meetups_url})
 
   if (loading) {
-    return <div>Loading</div>;
+    return <Loading/>;
   }
   return (
     <div id="video">

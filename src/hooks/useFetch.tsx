@@ -1,11 +1,6 @@
-import { log } from "console"
 import { useEffect, useState } from "react"
-import { FaLess } from "react-icons/fa"
 
 const jobs_url = 'http://3.38.98.134/jobs'
-// const jobs_url = 'http://3.38.98.134/jobs'
-
-
 const useFetch = ({
     url
 } = {
@@ -19,9 +14,7 @@ const useFetch = ({
         try{
             const response = await fetch(url)
             const data = await response.json()
-            if(data.statusCode === 200) {
-                console.log(data);
-                
+            if(data.statusCode === 200) {                
                 setData(data.data);
             }
         } catch(error) {
