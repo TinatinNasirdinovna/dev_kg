@@ -2,6 +2,7 @@ import React from "react";
 import useFetch from "../../hooks/useFetch";
 import VideoList from "./VideoList";
 import Loading from "../../ui/Loading";
+import { VideoTypes } from "../../types";
 
 const Video = () => {
   const meetups_url = 'http://3.38.98.134/meetups'
@@ -20,7 +21,7 @@ const Video = () => {
           </div>
           <h2>Все видео</h2>
           <div className="video--cards">
-            {data.map((el:any, index:number) => (
+            {data.map((el: VideoTypes, index:number) => (
               <VideoList 
               key={index}
               title= {el.title}

@@ -4,14 +4,15 @@ import VacancyList from "./VacancyList";
 import useFetch from "../../hooks/useFetch";
 import { log } from "console";
 import Loading from "../../ui/Loading";
+import { IVacancyType } from "../../types";
 
 const Vacancies = () => {
   const { data, loading } = useFetch();
 
   if (loading) {
-    return <Loading/>;
+    return <Loading />;
   }
-  
+
   return (
     <>
       <div id="vacancies">
@@ -25,19 +26,20 @@ const Vacancies = () => {
               </div>
               <div className="jobs-list">
                 {data &&
-                  data.map((job: any, index: number) => {
+                  data.map((job: IVacancyType, index: number) => {
                     return (
                       <VacancyList
                         key={index}
-                        companyName={job.organization_name}
+                        organization_name={job.organization_name}
                         jobTitle={job.position}
                         paymentType={job.paymentType}
-                        priceFrom={job.price_from}
-                        priceTo={job.price_to}
+                        price_from={job.price_from}
+                        price_to={job.price_to}
                         type={job.type}
                         city={job.city}
                         currency={job.currency}
                         salary={job.salary}
+                        position={job.position}
                       />
                     );
                   })}

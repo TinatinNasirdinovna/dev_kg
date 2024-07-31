@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Vacancy from "../../pages/Vacancy";
 import Event from "../../pages/Event";
 import Video from "../../pages/Video";
 import Organizations from "../../pages/Organizations";

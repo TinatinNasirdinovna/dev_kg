@@ -1,27 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { EventTypes } from "../../types";
 
 const EventsList = ({
-  location = "",
-  name = "",
-  organization_name = "",
-  date = "",
-}: {
-  location: string;
-  name: string;
-  organization_name: string;
-  date: string;
-}) => {
+  location,
+  name,
+  organization_name,
+  date,
+}: EventTypes) => {
   const date1 = new Date(date);
-
-  // Extract year, month, and day
   const year = date1.getFullYear();
-  const month = date1.toLocaleString("default", { month: "long" }); // Months are 0-based, so add 1
+  const month = date1.toLocaleString("default", { month: "long" });
   const day = date1.getDate();
   const hours = date1.getHours();
   const minutes = date1.getMinutes();
-  const formattedHours = hours.toString().padStart(2, '0');
-const formattedMinutes = minutes.toString().padStart(2, '0');
+  const formattedHours = hours.toString().padStart(2, "0");
+  const formattedMinutes = minutes.toString().padStart(2, "0");
 
   return (
     <Link to={"/eventDetals"}>
@@ -33,7 +27,10 @@ const formattedMinutes = minutes.toString().padStart(2, '0');
           />
           <div className="events--foto__text">
             <h4>
-              {day} {month} {year} <span>{formattedHours}:{formattedMinutes}</span>
+              {day} {month} {year}{" "}
+              <span>
+                {formattedHours}:{formattedMinutes}
+              </span>
             </h4>
             <h1>{name}</h1>
 
