@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
 import EventsList from "./EventsList";
 import useFetch from "../../hooks/useFetch";
 import Loading from "../../ui/Loading";
 import { EventTypes } from "../../types";
+import { API } from "../../API";
 
 
 function Events() {
-  const events_url = "http://3.38.98.134/events";
-  const { data, loading } = useFetch({ url: events_url });
+  const { data, loading } = useFetch({ url: `${API}events` });
 
   if (loading) {
     return <Loading />;

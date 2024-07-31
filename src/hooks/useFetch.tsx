@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import { API } from "../API"
 
-const jobs_url = 'http://3.38.98.134/jobs'
+const jobs_url = `${API}jobs`
 const useFetch = ({
     url
 } = {
