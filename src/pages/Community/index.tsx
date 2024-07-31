@@ -1,9 +1,10 @@
 import CommunityList from "./CommunityList";
 import useFetch from "../../hooks/useFetch";
 import Loading from "../../ui/Loading";
+import { API } from "../../API";
 
 const Community = () => {
-  const { data, loading } = useFetch({ url: "http://3.38.98.134/community" }); 
+  const { data, loading } = useFetch({ url:`${API}community` }); 
 
   if (loading) {
     return <Loading />;

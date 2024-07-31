@@ -1,13 +1,11 @@
-import React from "react";
 import useFetch from "../../hooks/useFetch";
 import VideoList from "./VideoList";
 import Loading from "../../ui/Loading";
 import { VideoTypes } from "../../types";
+import { API } from "../../API";
 
 const Video = () => {
-  const meetups_url = 'http://3.38.98.134/meetups'
-
-  const {data, loading} = useFetch({url: meetups_url})
+  const {data, loading} = useFetch({url: `${API}meetups` })
 
   if (loading) {
     return <Loading/>;
