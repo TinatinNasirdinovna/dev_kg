@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import EventsList from "./EventsList";
 import useFetch from "../../hooks/useFetch";
 import Loading from "../../ui/Loading";
+import { EventTypes } from "../../types";
+
 
 function Events() {
   const events_url = "http://3.38.98.134/events";
@@ -18,7 +20,7 @@ function Events() {
           <button>Добавить мероприятиe</button>
         </div>
         {data &&
-          data.map((el: any, index: number) => {
+          data.map((el: EventTypes, index: number) => {
             return (
               <EventsList
                 key={index}

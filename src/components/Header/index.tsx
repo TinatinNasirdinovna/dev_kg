@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-// import { ReactComponent as Logo } from "../../assets/images/header-logo.svg";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineLogin } from "react-icons/ai";
 import { TbMenu2 } from "react-icons/tb";
 import { IoCloseSharp } from "react-icons/io5";

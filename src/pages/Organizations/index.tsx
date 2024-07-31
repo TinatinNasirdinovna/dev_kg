@@ -1,8 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import OrganizationList from "./OrganizationList";
 import useFetch from "../../hooks/useFetch";
 import Loading from "../../ui/Loading";
+import { IOrganizationTypes } from "../../types";
 
 const Organizations = () => {
   const { data, loading } = useFetch({
@@ -19,7 +19,7 @@ const Organizations = () => {
         <div className="organizations">
           <div className="organizations--cards">
             {data &&
-              data.map((el: any, index: number) => {
+              data.map((el: IOrganizationTypes, index: number) => {
                 return <OrganizationList
                   key={index}
                   name={el.name}

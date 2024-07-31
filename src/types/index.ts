@@ -1,14 +1,5 @@
-export interface ICommunity {
-    label: string;
-    value: string
-}
-
-export interface IData {
-    devkg: ICommunity[];
-    telegram_chats: ICommunity[];
-    telegram_channels: ICommunity[];
-    websites: ICommunity[];
-    facebook: ICommunity[];
-    youtube: ICommunity[];
-    github: ICommunity[];
-}
+export * from './Community-types';
+export * from './Events-types';
+export * from './Video-types';
+export * from './Organization-types';
+export * from './Vacansy-types';

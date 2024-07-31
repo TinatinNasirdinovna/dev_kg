@@ -1,27 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { IVacancyType } from "../../types";
 
 const VacancyList = ({
-    companyName = '',
-    jobTitle = '',
-    paymentType = '',
-    priceFrom = 0,
-    priceTo = 0,
-    type = '',
-    city = '',
-    currency = '',
-    salary = ''
-} : {
-    companyName: string;
-    jobTitle: string;
-    paymentType: string;
-    priceFrom: number;
-    priceTo: number;
-    type: string;
-    city: string;
-    currency: string;
-    salary: string
-}) => {
+  organization_name,
+  jobTitle,
+  paymentType,
+  price_from,
+  price_to,
+  type,
+  city,
+  currency,
+  salary,
+}: IVacancyType) => {
   const nav = useNavigate();
   return (
     <div className="jobs-item content">
@@ -41,21 +32,21 @@ const VacancyList = ({
           onClick={() => nav("/detailPosition")}
         >
           <span className="label">Компания</span>
-          {companyName}
+          {organization_name}
         </div>
         <div
           className="jobs-item-field position"
           onClick={() => nav("/detailPosition")}
         >
           <span className="label">Должность</span>
-         {jobTitle}
+          {jobTitle}
         </div>
         <div
           className="jobs-item-field price"
           onClick={() => nav("/detailPosition")}
         >
           <span className="label">Оклад</span>
-         { `От ${priceFrom} в ${priceTo} ${currency} ${salary} `}
+          {`От ${price_from} в ${price_to} ${currency} ${salary} `}
         </div>
         <div
           className="jobs-item-field type"
