@@ -24,7 +24,7 @@ const Header: React.FC = () => {
             />
             <path
               stroke="#000"
-              stroke-width="9.48"
+              strokeWidth="9.48"
               d="M19.88 14.26H5.7v18.99h14.2a4.7 4.7 0 0 0 4.7-4.7V19"
             />
           </svg>
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
             <NavLink to={"/organization"}>Организации</NavLink>
             <NavLink to={"/community"}>Сообщество</NavLink>
           </nav>
-          <div className="header--btn">
+          <div className="header--btn" onClick={() => nav('/auth')}>
             <span>
               <AiOutlineLogin />
             </span>
@@ -61,7 +61,7 @@ const Header: React.FC = () => {
               />
               <path
                 stroke="#000"
-                stroke-width="9.48"
+                strokeWidth="9.48"
                 d="M19.88 14.26H5.7v18.99h14.2a4.7 4.7 0 0 0 4.7-4.7V19"
               />
             </svg>

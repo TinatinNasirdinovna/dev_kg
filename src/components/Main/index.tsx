@@ -10,6 +10,7 @@ import DetailPosition from "../../pages/DetailPosition";
 import VideoDetail from "../../pages/VideoDetail";
 import EventDetals from "../../pages/EventDetals";
 import Hero from "../../pages/Hero";
+import Auth from "../../pages/Auth";
 
 const Main = () => {
   return (
@@ -25,8 +26,7 @@ const Main = () => {
         <Route path="/detailPosition" element={<DetailPosition />} />
         <Route path="/videoDetail" element={<VideoDetail />} />
         <Route path="/eventDetals" element={<EventDetals />} />
-        <Route path="" element={<EventDetals />} />
-
+        <Route path="/auth" element={<Auth/>}/>
       </Routes>
     </div>
   );
