@@ -11,13 +11,14 @@ import VideoDetail from "../../pages/VideoDetail";
 import EventDetals from "../../pages/EventDetals";
 import Hero from "../../pages/Hero";
 import Auth from "../../pages/Auth";
+import RouterProtector from "../RouterProtect";
 
 const Main = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/vacancy" element={<Vacancies />} />
+        <Route path="/vacancy" element={<RouterProtector><Vacancies /></RouterProtector>} />
         <Route path="/events" element={<Event />} />
         <Route path="/video" element={<Video />} />
         <Route path="/organization" element={<Organizations />} />

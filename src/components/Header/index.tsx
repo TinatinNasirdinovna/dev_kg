@@ -1,18 +1,33 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineLogin } from "react-icons/ai";
 import { TbMenu2 } from "react-icons/tb";
 import { IoCloseSharp } from "react-icons/io5";
+import { isUserLogeddin } from "../../utils";
+import Cookies from "js-cookie";
 
 const Header: React.FC = () => {
+  const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(false)
   const [menu, setMenu] = useState<boolean>(false);
-  const nav = useNavigate()
+  const nav = useNavigate();
+  const location = useLocation()
+
+  useEffect(() => {
+    const loggedIn = isUserLogeddin()
+    setIsLoggedIn(loggedIn)
+  }, [isLoggedIn, setIsLoggedIn, location.pathname])
+
+  const logout = () => {
+    Cookies.remove("authtoken");
+    setIsLoggedIn(false)
+  };
+
   return (
     <div id="header">
       <div className="container">
         <div className="header">
-          <svg 
-            onClick={() => nav('/')}
+          <svg
+            onClick={() => nav("/")}
             xmlns="http://www.w3.org/2000/svg"
             width="105"
             height="38"
@@ -38,12 +53,21 @@ const Header: React.FC = () => {
             <NavLink to={"/organization"}>Организации</NavLink>
             <NavLink to={"/community"}>Сообщество</NavLink>
           </nav>
-          <div className="header--btn" onClick={() => nav('/auth')}>
-            <span>
-              <AiOutlineLogin />
-            </span>
-            <button>Войти</button>
-          </div>
+          {isLoggedIn ? (
+            <div className="header--btn" onClick={logout}>
+              <span>
+                <AiOutlineLogin />
+              </span>
+              <button>Logout</button>
+            </div>
+          ) : (
+            <div className="header--btn" onClick={() => nav("/auth")}>
+              <span>
+                <AiOutlineLogin />
+              </span>
+              <button>Войти</button>
+            </div>
+          )}
         </div>
       </div>
       {menu && (

@@ -1,16 +1,23 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks";
+
+const loginApi = "http://3.38.98.134/auth/login";
+const sighUpApi = "http://3.38.98.134/auth/signup";
 
 const Auth = () => {
-  const loginApi = "http://3.38.98.134/auth/login";
-  const sighUpApi = "http://3.38.98.134/auth/signup";
+  const nav = useNavigate();
   const [userName, setUserName] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
   const [confirm, setConfirm] = React.useState<string>("");
   const [isLoginTab, setIsLoginTab] = React.useState<boolean>(true);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const apiUrl = isLoginTab ? loginApi : sighUpApi
+  const {login} =useAuth({url: apiUrl})
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!userName || !password) {
       alert("Please, fill the  fields!");
@@ -18,30 +25,15 @@ const Auth = () => {
     if (!isLoginTab && password !== confirm) {
       alert("Password do not match");
     }
-    const authUrl = isLoginTab ? loginApi : sighUpApi;
-    try {
-      axios
-        .post(authUrl, {
-          userName,
-          password,
-        })
-        .then((res) => {
-          const { token, message } = res.data;
-          if (res.data.succes) {
-            console.log("data", res.data);
-            Cookies.set;
-            alert(message);
-          } else {
-            alert(message);
-          }
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } catch (error) {
-      console.log(error);
+
+    const res: any = await login(userName, password)
+    if(res?.success ){
+      Cookies.set('authtoken', res.token);
+      nav('/')
+    } else {
+      alert('Invalid credentials')
     }
+    
   };
 
   return (
