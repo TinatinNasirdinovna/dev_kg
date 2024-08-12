@@ -15,8 +15,7 @@ const Auth = () => {
   const [isLoginTab, setIsLoginTab] = React.useState<boolean>(true);
 
   const apiUrl = isLoginTab ? loginApi : sighUpApi
-  const {login} =useAuth({url: apiUrl})
-  
+  const {login} = useAuth({url: apiUrl})
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!userName || !password) {
@@ -25,7 +24,6 @@ const Auth = () => {
     if (!isLoginTab && password !== confirm) {
       alert("Password do not match");
     }
-
     const res: any = await login(userName, password)
     if(res?.success ){
       Cookies.set('authtoken', res.token);
@@ -33,7 +31,6 @@ const Auth = () => {
     } else {
       alert('Invalid credentials')
     }
-    
   };
 
   return (
@@ -51,14 +48,14 @@ const Auth = () => {
               />
               <input
                 value={password}
-                type="text"
+                type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
               />
               {!isLoginTab && (
                 <input
                   value={confirm}
-                  type="text"
+                  type="password"
                   placeholder="Confirm password"
                   onChange={(e) => setConfirm(e.target.value)}
                 />
