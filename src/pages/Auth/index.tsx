@@ -20,16 +20,18 @@ const Auth = () => {
     e.preventDefault();
     if (!userName || !password) {
       alert("Please, fill the  fields!");
+      return;
     }
     if (!isLoginTab && password !== confirm) {
       alert("Password do not match");
+      return;
     }
     const res: any = await login(userName, password)
     if(res?.success ){
       Cookies.set('authtoken', res.token);
       nav('/')
     } else {
-      alert('Invalid credentials')
+      alert(res.message)
     }
   };
 
