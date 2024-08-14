@@ -19,7 +19,7 @@ const Main = () => {
     <div>
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/vacancy" element={<RouterProtector><Vacancies /></RouterProtector>} />
+        <Route path="/vacancy" element={<Vacancies />} />
         <Route path="/events" element={<Event />} />
         <Route path="/video" element={<Video />} />
         <Route path="/organization" element={<Organizations />} />
@@ -29,7 +29,7 @@ const Main = () => {
         <Route path="/videoDetail" element={<VideoDetail />} />
         <Route path="/eventDetals" element={<EventDetals />} />
         <Route path="/auth" element={<Auth/>}/>
-        <Route path="/addVacancy" element={<AddVacancy/>}/>
+        <Route path="/addVacancy" element={<RouterProtector><AddVacancy/></RouterProtector>}/>
       </Routes>
     </div>
   );
