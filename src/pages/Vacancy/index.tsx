@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import VacancyList from "./VacancyList";
 import useFetch from "../../hooks/useFetch";
 import { log } from "console";
@@ -8,6 +8,7 @@ import { IVacancyType } from "../../types";
 
 const Vacancies = () => {
   const { data, loading } = useFetch();
+ 
 
   if (loading) {
     return <Loading />;
@@ -20,7 +21,7 @@ const Vacancies = () => {
           <div className="vacancies">
             <div className="vacancies__content">
               <div className="filter">
-                <Link to={"/"}>
+                <Link to={"/addVacancy"}>
                   <button>Добавить вакансию</button>
                 </Link>
               </div>
