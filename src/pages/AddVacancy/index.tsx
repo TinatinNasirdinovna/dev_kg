@@ -1,43 +1,142 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { API } from "../../API";
 
 const AddVacancy = () => {
+  const [organization_name, setOrganizationName] = useState("");
+  const [price_from, setPriceForm] = useState("");
+  const [price_to, setPriceTo] = useState("");
+  const [currency, setCurrency] = useState("");
+  const [position, setPosition] = useState("");
+  const [city, setCity] = useState("");
+  const [salary, setSalary] = useState("");
+  const [phone, setPhone] = useState("");
+  const [type, setType] = useState("");
+
+  const handleAddVacancy = async () => {
+    try {
+      const response = await axios.post(`${API}/jobs`, {
+        organization_name: organization_name,
+        price_from: price_from,
+        price_to: price_to,
+        currency: currency,
+        position: position,
+        city: city,
+        salary: salary,
+        phone: phone,    
+        type: type,
+      });
+
+      if (response.data.success) {
+        console.log(response.data);
+      }
+      alert(response.data.message);
+    } catch (error) {
+      console.error("error", error);
+      alert("Не удалось добавить вакансию");
+    }
+  }
+
   return (
     <div id="addVacancy">
       <div className="container">
         <div className="addVacancy">
-          <h1>Добавить вакансию</h1>
           <form className="addVacancy--form">
             <div className="addVacancy--form__cards">
-                <label htmlFor="">
-                  Название организации
-                  <input type="text" placeholder="" />
-                </label>
-                <label htmlFor="">
-                  Название вакансии
-                  <input type="text" placeholder="" />
-                </label>
-                <label htmlFor="">
-                  Место работы
-                  <input type="text" placeholder="" />
-                </label>
-                <label htmlFor="">
-                  Уровень дохода
-                  <input type="text" placeholder="" />
-                </label>
-                <label htmlFor="">
-                  Телефон
-                  <input type="text" placeholder="" />
-                </label>
-                <label htmlFor="">
-                  Email
-                  <input type="text" placeholder="" />
-                </label>      
-                <label htmlFor="">
-                  Общие условия
-                  <textarea placeholder="type something ..." />
-                </label>
+              <label htmlFor="">
+                Название организации
+                <input
+                  type="text"
+                  placeholder=""
+                  value={organization_name}
+                  onChange={(e) => setOrganizationName(e.target.value)}
+                />
+              </label>
+              <label htmlFor="">
+                Название вакансии
+                <input
+                  type="text"
+                  placeholder=""
+                  value={position}
+                  onChange={(e) => setPosition(e.target.value)}
+                />
+              </label>
+              <label htmlFor="">
+                Место работы
+                <input
+                  type="text"
+                  placeholder=""
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
+              </label>
+              <label htmlFor="">
+                Уровень дохода
+                <input
+                  type="text"
+                  placeholder="(price from)"
+                  value={price_from}
+                  onChange={(e) => setPriceForm(e.target.value)}
+                />
+              </label>
+              <label htmlFor="">
+                Уровень дохода
+                <input
+                  type="text"
+                  value={price_to}
+                  placeholder="(price to)"
+                  onChange={(e) => setPriceTo(e.target.value)}
+                />
+              </label>
+              <label htmlFor="">
+                Оклад
+                <input
+                  type="text"
+                  placeholder="price to"
+                  value={salary}
+                  onChange={(e) => setSalary(e.target.value)}
+                />
+              </label>
+              <label htmlFor="">
+                Валюта
+                <input
+                  type="text"
+                  placeholder=""
+                  value={currency}
+                  onChange={(e) => setCurrency(e.target.value)}
+                />
+              </label>
+              <label htmlFor="">
+                Общие условия
+                <textarea placeholder="type something ..." />
+              </label>
+              <label htmlFor="">
+                Телефон
+                <input
+                  type="text"
+                  placeholder="+996 (707) 77 77 77 "
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </label>
+              <label htmlFor="type">Тип</label>
+              <label htmlFor="">
+              <select
+                id="type"
+                required
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+              >
+                <option value="" disabled>
+                  Выберите тип работы
+                </option>
+                <option value="full-time">Полная занятость</option>
+                <option value="part-time">Частичная занятость</option>
+                <option value="remote">Удаленная работа</option>
+              </select>
+              </label>
             </div>
-            <button type="submit">Добавить вакансию</button>
+            <button type="submit" onSubmit={handleAddVacancy}>Добавить вакансию</button>
           </form>
         </div>
       </div>
