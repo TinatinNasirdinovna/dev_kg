@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { API } from "../../API";
+import { useNavigate } from "react-router-dom";
 
 const AddVacancy = () => {
+  const nav = useNavigate()
   const [organization_name, setOrganizationName] = useState("");
   const [price_from, setPriceForm] = useState("");
   const [price_to, setPriceTo] = useState("");
@@ -14,38 +16,54 @@ const AddVacancy = () => {
   const [type, setType] = useState("");
 
   const handleAddVacancy = async (e: React.FormEvent) => {
-    e.preventDefault()
-    try {
-      const response = await axios.post(`${API}jobs`,   {
-        organization_name: organization_name,
-        price_from: +price_from,
-        price_to: +price_to,
-        currency: currency,
-        position: position,
-        city: city,
-        salary: salary,
-        phone: phone,    
-        type: type,
-        id: Math.random(),
-        slug: '',
-        created_at: '',
-        updated_at:'',
-        is_archived: true,
-        gradient: 0,
-        workday: '',
-        organization_icon: '',
-        organization_icon_formats: [null]
-      });
+    e.preventDefault();
+    if (
+      organization_name &&
+      price_from &&
+      price_to &&
+      currency &&
+      position &&
+      city &&
+      salary &&
+      phone &&
+      type
+    ) {
+      try {
+        const response = await axios.post(`${API}jobs`, {
+          organization_name: organization_name,
+          price_from: +price_from,
+          price_to: +price_to,
+          currency: currency,
+          position: position,
+          city: city,
+          salary: salary,
+          phone: phone,
+          type: type,
+          id: Math.random(),
+          slug: "",
+          created_at: "",
+          updated_at: "",
+          is_archived: true,
+          gradient: 0,
+          workday: "",
+          organization_icon: "",
+          organization_icon_formats: [null],
+        });
 
-      if (response.data.success) {
-        console.log(response.data);
+        if (response.data.success) {
+          console.log(response.data);
+        }
+        alert(response.data.message);
+      } catch (error) {
+        console.error("error", error);
+        alert("Не удалось добавить вакансию");
       }
-      alert(response.data.message);
-    } catch (error) {
-      console.error("error", error);
-      alert("Не удалось добавить вакансию");
+      nav('/vacancy')
+    } else {
+      alert("Please, fill the empty fields");
     }
-  }
+   
+  };
 
   return (
     <div id="addVacancy">
@@ -83,7 +101,7 @@ const AddVacancy = () => {
               <label htmlFor="">
                 Уровень дохода
                 <input
-                  type="text"
+                  type="number"
                   placeholder="(price from)"
                   value={price_from}
                   onChange={(e) => setPriceForm(e.target.value)}
@@ -92,7 +110,7 @@ const AddVacancy = () => {
               <label htmlFor="">
                 Уровень дохода
                 <input
-                  type="text"
+                  type="number"
                   value={price_to}
                   placeholder="(price to)"
                   onChange={(e) => setPriceTo(e.target.value)}
@@ -100,12 +118,17 @@ const AddVacancy = () => {
               </label>
               <label htmlFor="">
                 Оклад
-                <input
-                  type="text"
-                  placeholder="price to"
-                  value={salary}
+                <select
+                  id="type"
+                  required
+                  value={type}
                   onChange={(e) => setSalary(e.target.value)}
-                />
+                >
+                  <option value="" disabled>Выберите время зарплат</option>
+                  <option value="monthly">Месяц</option>
+                  <option value="week">Неделя</option>
+                  <option value="in 10 day">10 день</option>
+                </select>
               </label>
               <label htmlFor="">
                 Валюта
@@ -131,22 +154,22 @@ const AddVacancy = () => {
               </label>
               <label htmlFor="type">Тип</label>
               <label htmlFor="">
-              <select
-                id="type"
-                required
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-              >
-                <option value="" disabled>
-                  Выберите тип работы
-                </option>
-                <option value="full-time">Полная занятость</option>
-                <option value="part-time">Частичная занятость</option>
-                <option value="remote">Удаленная работа</option>
-              </select>
+                <select
+                  id="type"
+                  required
+                  value={type}
+                  onChange={(e) => setType(e.target.value)}
+                >
+                  <option value="" disabled>
+                    Выберите тип работы
+                  </option>
+                  <option value="full-time">Полная занятость</option>
+                  <option value="part-time">Частичная занятость</option>
+                  <option value="remote">Удаленная работа</option>
+                </select>
               </label>
             </div>
-            <button type="submit" >Добавить вакансию</button>
+            <button type="submit">Добавить вакансию</button>
           </form>
         </div>
       </div>
