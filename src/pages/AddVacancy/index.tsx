@@ -13,18 +13,28 @@ const AddVacancy = () => {
   const [phone, setPhone] = useState("");
   const [type, setType] = useState("");
 
-  const handleAddVacancy = async () => {
+  const handleAddVacancy = async (e: React.FormEvent) => {
+    e.preventDefault()
     try {
-      const response = await axios.post(`${API}/jobs`, {
+      const response = await axios.post(`${API}jobs`,   {
         organization_name: organization_name,
-        price_from: price_from,
-        price_to: price_to,
+        price_from: +price_from,
+        price_to: +price_to,
         currency: currency,
         position: position,
         city: city,
         salary: salary,
         phone: phone,    
         type: type,
+        id: Math.random(),
+        slug: '',
+        created_at: '',
+        updated_at:'',
+        is_archived: true,
+        gradient: 0,
+        workday: '',
+        organization_icon: '',
+        organization_icon_formats: [null]
       });
 
       if (response.data.success) {
@@ -41,7 +51,7 @@ const AddVacancy = () => {
     <div id="addVacancy">
       <div className="container">
         <div className="addVacancy">
-          <form className="addVacancy--form">
+          <form className="addVacancy--form" onSubmit={handleAddVacancy}>
             <div className="addVacancy--form__cards">
               <label htmlFor="">
                 Название организации
@@ -136,7 +146,7 @@ const AddVacancy = () => {
               </select>
               </label>
             </div>
-            <button type="submit" onSubmit={handleAddVacancy}>Добавить вакансию</button>
+            <button type="submit" >Добавить вакансию</button>
           </form>
         </div>
       </div>
