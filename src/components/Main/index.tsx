@@ -13,6 +13,7 @@ import Hero from "../../pages/Hero";
 import Auth from "../../pages/Auth";
 import RouterProtector from "../RouterProtect";
 import AddVacancy from "../../pages/AddVacancy";
+import AddEvents from "../../pages/AddEvents";
 
 const Main = () => {
   return (
@@ -30,6 +31,7 @@ const Main = () => {
         <Route path="/eventDetals" element={<EventDetals />} />
         <Route path="/auth" element={<Auth/>}/>
         <Route path="/addVacancy" element={<RouterProtector><AddVacancy/></RouterProtector>}/>
+        <Route path="/addEvents" element={<RouterProtector><AddEvents/></RouterProtector>}/>
       </Routes>
     </div>
   );

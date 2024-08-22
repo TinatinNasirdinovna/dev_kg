@@ -49,13 +49,8 @@ const AddVacancy = () => {
           organization_icon: "",
           organization_icon_formats: [null],
         });
-
-        if (response.data.success) {
-          console.log(response.data);
-        }
         alert(response.data.message);
       } catch (error) {
-        console.error("error", error);
         alert("Не удалось добавить вакансию");
       }
       nav('/vacancy')
