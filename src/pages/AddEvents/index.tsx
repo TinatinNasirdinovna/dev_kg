@@ -7,10 +7,21 @@ import "react-toastify/dist/ReactToastify.css";
 
 const AddEvents = () => {
   const nav = useNavigate();
-  const [organization_name, setOrganizationName] = useState("");
-  const [location, setLocation] = useState("");
-  const [date, setDate] = useState("");
-  const [name, setName] = useState("");
+
+  const [eventState, setEventState] = useState({
+    organization_name: '',
+    location:'',
+    date: '',
+    name: '',
+  })
+
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    let currentInput  = e.target.name
+    setEventState({
+      ...eventState,
+      [currentInput]: e.target.value
+    })
+  }
 
   const messageAlert = (mess: string) =>
     toast(mess, {
@@ -26,24 +37,24 @@ const AddEvents = () => {
 
   const handleAddEvents = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!organization_name && !location && !date && !name) {
+    if (!eventState.organization_name && !eventState.location && !eventState.date && !eventState.name) {
       messageAlert("Please, fill the empty fields");
       return;
     }
     try {
       const response = await axios.post(`${API}events`, {
         id: Math.random(),
-        name: name,
+        name: eventState.name,
         cover: null,
-        slug: name,
-        location: location,
-        created_at: date,
-        updated_at: date,
-        date: new Date(date),
+        slug: eventState.name,
+        location: eventState.location,
+        created_at: eventState.date,
+        updated_at: eventState.date,
+        date: new Date(eventState.date),
         gradient: 27,
         event_type: "offline",
         button_type: "website",
-        organization_name: organization_name,
+        organization_name: eventState.organization_name,
         cover_formats: [],
       });
       messageAlert(response.data.message);
@@ -63,9 +74,10 @@ const AddEvents = () => {
                 Название организации
                 <input
                   type="text"
+                  name="organization_name"
                   placeholder=""
-                  value={organization_name}
-                  onChange={(e) => setOrganizationName(e.target.value)}
+                  value={eventState.organization_name}
+                  onChange={inputChangeHandler}
                 />
               </label>
               <label htmlFor="">
@@ -73,8 +85,9 @@ const AddEvents = () => {
                 <input
                   type="text"
                   placeholder=""
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={eventState.name}
+                  name="name"
+                  onChange={inputChangeHandler}
                 />
               </label>
               <label htmlFor="">
@@ -82,16 +95,18 @@ const AddEvents = () => {
                 <input
                   type="text"
                   placeholder=""
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
+                  value={eventState.location}
+                  name="location"
+                  onChange={ inputChangeHandler}
                 />
               </label>
               <label htmlFor="">
                 Дата мероприятиe
                 <input
                   type="date"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
+                  value={eventState.date}
+                  name="date"
+                  onChange={inputChangeHandler}
                 />
               </label>
             </div>
