@@ -1,15 +1,123 @@
-import React from "react";
+import React, { useState } from "react";
 import { LuBold } from "react-icons/lu";
 import { FaItalic } from "react-icons/fa";
 import { RiUnderline } from "react-icons/ri";
 import { MdOutlineFormatListNumbered } from "react-icons/md";
 import { MdOutlineFormatListBulleted } from "react-icons/md";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { API } from "../../API";
+import { useNavigate } from "react-router-dom";
 
 const AddVacancy = () => {
+  const nav = useNavigate();
+  const [vacancyData, setVacancyData] = useState({
+    type: "", // done
+    currency: "", // done
+    price_from: "", // done
+    price_to: "", // done
+    position: "", // done
+    city: "", // done
+    salary: "", // done
+    description: "", // done
+    email: "", // done
+    organization_name: "", // done
+    organization_icon: "", // done
+  });
+
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let currentInput = e.target.name;
+    setVacancyData({
+      ...vacancyData,
+      [currentInput]: e.target.value,
+    });
+  };
+
+  const textareaChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    let currentInput = e.target.name;
+    setVacancyData({
+      ...vacancyData,
+      [currentInput]: e.target.value,
+    });
+  };
+
+  const selectChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    let currentInput = e.target.name;
+    setVacancyData({
+      ...vacancyData,
+      [currentInput]: e.target.value,
+    });
+  };
+
+  const handleAddVacancy = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (
+      vacancyData.city.trim() === "" ||
+      vacancyData.email.trim() === "" ||
+      vacancyData.organization_name.trim() === "" ||
+      vacancyData.organization_icon.trim() === "" ||
+      vacancyData.price_from.trim() === "" ||
+      vacancyData.position.trim() === "" ||
+      vacancyData.price_to.trim() === ""
+    ) {
+      toast.error("Please fill the empty fields!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
+    try {
+      const response = await axios.post(`${API}jobs`, {
+        type: vacancyData.type,
+        slug: "",
+        currency: vacancyData.currency,
+        price_from: vacancyData.price_from,
+        price_to: vacancyData.price_to,
+        position: vacancyData.position,
+        city: vacancyData.city,
+        salary: vacancyData.salary,
+        created_at: "2024-06-04T04:25:29.832Z",
+        updated_at: "2024-06-07T11:23:06.614Z",
+        is_archived: null,
+        gradient: 23,
+        workday: vacancyData.description,
+        organization_name: vacancyData.organization_name,
+        organization_icon: vacancyData.organization_icon,
+        organization_icon_formats: [
+          {
+            type: "image/webp",
+            url: vacancyData.organization_icon,
+          },
+        ],
+      });
+      toast.success(response.data.message, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } catch (error) {
+      alert("error");
+    }
+    setTimeout(() => {
+      nav("/vacancy");
+    }, 3000)
+  };
   return (
     <div id="createVacancy">
       <div className="container">
-        <div className="createVacancy">
+        <form className="createVacancy" onSubmit={handleAddVacancy}>
           <h1>Добавить новую вакансию</h1>
           <p>
             Вакансия должна относится к сфере информационных технологий и будет
@@ -19,14 +127,23 @@ const AddVacancy = () => {
             <h3>
               Организация<span>*</span>
             </h3>
-            <input type="text" placeholder="Создать организацию" />
+            <input
+              type="text"
+              name="organization_name"
+              placeholder="Создать организацию"
+              onChange={inputChangeHandler}
+            />
           </div>
           <div className="createVacancy--job">
             <h3>
               Должность<span>*</span>
             </h3>
             <div className="createVacancy">
-              <input type="text" />
+              <input
+                type="text"
+                name="position"
+                onChange={inputChangeHandler}
+              />
               <label htmlFor="">Например “Middle JavaScript Developer”</label>
             </div>
           </div>
@@ -53,7 +170,14 @@ const AddVacancy = () => {
                     <MdOutlineFormatListBulleted />
                   </span>
                 </div>
-                <textarea name="" id=""></textarea>
+                <textarea
+                  value={`The ${vacancyData.organization_name} - компания по разработке программного обеспечения.
+Основной деятельностью компании является проектирование, разработка цифровых сервисов и дизайн цифровых продуктов и сервисов, а именно серверной части, веб-сервисов, сайтов, мобильных приложений, ботов.
+Занимаемся аутсорс и аутстафф направлением.`}
+                  name="description"
+                  onChange={textareaChangeHandler}
+                ></textarea>
+
                 <p>
                   Длина текста: 0 символов, минимально допустимое значение 200
                   символов
@@ -84,12 +208,16 @@ const AddVacancy = () => {
             </div>
           </div>
           <div className="createVacancy--skype">
-            <h3>Skype</h3>
-            <input type="text" />
+            <h3>Ссылка логотипа организации</h3>
+            <input
+              type="text"
+              name="organization_icon"
+              onChange={inputChangeHandler}
+            />
           </div>
           <div className="createVacancy--skype">
             <h3>E-Mail</h3>
-            <input type="text" />
+            <input type="text" name="email" onChange={inputChangeHandler} />
           </div>
           <div className="createVacancy--skype">
             <h3>Телефон</h3>
@@ -100,7 +228,7 @@ const AddVacancy = () => {
               Тип<span>*</span>
             </h3>
             <div className="reateVacancy--type__box">
-              <select>
+              <select onChange={selectChangeHandler} name="type">
                 <option value="Работа в офисе (только в Кыргызстан)">
                   Работа в офисе (только в Кыргызстан)
                 </option>
@@ -123,14 +251,14 @@ const AddVacancy = () => {
             <h3>
               Город<span>*</span>
             </h3>
-            <input type="text" />
+            <input type="text" name="city" onChange={inputChangeHandler} />
           </div>
           <div className="createVacancy--salary">
             <h3>
               Оклад<span>*</span>
             </h3>
             <div className="createVacancy--salary__box">
-              <select>
+              <select name="salary" onChange={selectChangeHandler}>
                 <option value="Фиксированный оплата за проект">
                   Фиксированный оплата за проект
                 </option>
@@ -144,187 +272,34 @@ const AddVacancy = () => {
               </label>
             </div>
           </div>
-          <button>Сохранить</button>
-        </div>
+          <div className="createVacancy--price">
+            <div className="createVacancy--price__box">
+              <input
+                type="number"
+                placeholder="От*"
+                name="price_from"
+                onChange={inputChangeHandler}
+              />
+              <input
+                type="number"
+                placeholder="До"
+                name="price_to"
+                onChange={inputChangeHandler}
+              />
+              <select name="currency" onChange={selectChangeHandler}>
+                <option value="KGS">KGS</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="RUB">RUB</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit">Сохранить</button>
+        </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
 
 export default AddVacancy;
-
-// import axios from "axios";
-// import React, { useState } from "react";
-// import { API } from "../../API";
-// import { useNavigate } from "react-router-dom";
-
-// const AddVacancy = () => {
-//   const nav = useNavigate()
-//   const [organization_name, setOrganizationName] = useState("");
-//   const [price_from, setPriceForm] = useState("");
-//   const [price_to, setPriceTo] = useState("");
-//   const [currency, setCurrency] = useState("");
-//   const [position, setPosition] = useState("");
-//   const [city, setCity] = useState("");
-//   const [salary, setSalary] = useState("");
-//   const [phone, setPhone] = useState("");
-//   const [type, setType] = useState("");
-
-//   const handleAddVacancy = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     if (
-//       organization_name &&
-//       price_from &&
-//       price_to &&
-//       currency &&
-//       position &&
-//       city &&
-//       salary &&
-//       phone &&
-//       type
-//     ) {
-//       try {
-//         const response = await axios.post(`${API}jobs`, {
-//           organization_name: organization_name,
-//           price_from: +price_from,
-//           price_to: +price_to,
-//           currency: currency,
-//           position: position,
-//           city: city,
-//           salary: salary,
-//           phone: phone,
-//           type: type,
-//           id: Math.random(),
-//           slug: "",
-//           created_at: "",
-//           updated_at: "",
-//           is_archived: true,
-//           gradient: 0,
-//           workday: "",
-//           organization_icon: "",
-//           organization_icon_formats: [null],
-//         });
-//         alert(response.data.message);
-//       } catch (error) {
-//         alert("Не удалось добавить вакансию");
-//       }
-//       nav('/vacancy')
-//     } else {
-//       alert("Please, fill the empty fields");
-//     }
-
-//   };
-
-//   return (
-//     <div id="addVacancy">
-//       <div className="container">
-//         <div className="addVacancy">
-//           <form className="addVacancy--form" onSubmit={handleAddVacancy}>
-//             <div className="addVacancy--form__cards">
-//               <label htmlFor="">
-//                 Название организации
-//                 <input
-//                   type="text"
-//                   placeholder=""
-//                   value={organization_name}
-//                   onChange={(e) => setOrganizationName(e.target.value)}
-//                 />
-//               </label>
-//               <label htmlFor="">
-//                 Название вакансии
-//                 <input
-//                   type="text"
-//                   placeholder=""
-//                   value={position}
-//                   onChange={(e) => setPosition(e.target.value)}
-//                 />
-//               </label>
-//               <label htmlFor="">
-//                 Место работы
-//                 <input
-//                   type="text"
-//                   placeholder=""
-//                   value={city}
-//                   onChange={(e) => setCity(e.target.value)}
-//                 />
-//               </label>
-//               <label htmlFor="">
-//                 Уровень дохода
-//                 <input
-//                   type="number"
-//                   placeholder="(price from)"
-//                   value={price_from}
-//                   onChange={(e) => setPriceForm(e.target.value)}
-//                 />
-//               </label>
-//               <label htmlFor="">
-//                 Уровень дохода
-//                 <input
-//                   type="number"
-//                   value={price_to}
-//                   placeholder="(price to)"
-//                   onChange={(e) => setPriceTo(e.target.value)}
-//                 />
-//               </label>
-//               <label htmlFor="">
-//                 Оклад
-//                 <select
-//                   id="type"
-//                   required
-//                   value={type}
-//                   onChange={(e) => setSalary(e.target.value)}
-//                 >
-//                   <option value="" disabled>Выберите время зарплат</option>
-//                   <option value="monthly">Месяц</option>
-//                   <option value="week">Неделя</option>
-//                   <option value="in 10 day">10 день</option>
-//                 </select>
-//               </label>
-//               <label htmlFor="">
-//                 Валюта
-//                 <input
-//                   type="text"
-//                   placeholder=""
-//                   value={currency}
-//                   onChange={(e) => setCurrency(e.target.value)}
-//                 />
-//               </label>
-//               <label htmlFor="">
-//                 Общие условия
-//                 <textarea placeholder="type something ..." />
-//               </label>
-//               <label htmlFor="">
-//                 Телефон
-//                 <input
-//                   type="text"
-//                   placeholder="+996 (707) 77 77 77 "
-//                   value={phone}
-//                   onChange={(e) => setPhone(e.target.value)}
-//                 />
-//               </label>
-//               <label htmlFor="type">Тип</label>
-//               <label htmlFor="">
-//                 <select
-//                   id="type"
-//                   required
-//                   value={type}
-//                   onChange={(e) => setType(e.target.value)}
-//                 >
-//                   <option value="" disabled>
-//                     Выберите тип работы
-//                   </option>
-//                   <option value="full-time">Полная занятость</option>
-//                   <option value="part-time">Частичная занятость</option>
-//                   <option value="remote">Удаленная работа</option>
-//                 </select>
-//               </label>
-//             </div>
-//             <button type="submit">Добавить вакансию</button>
-//           </form>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AddVacancy;
