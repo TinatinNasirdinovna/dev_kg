@@ -31,6 +31,7 @@ const Vacancies = () => {
                     return (
                       <VacancyList
                         key={index}
+                        organization_icon={job.organization_icon}
                         organization_name={job.organization_name}
                         jobTitle={job.position}
                         paymentType={job.paymentType}

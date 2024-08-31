@@ -1,0 +1,25 @@
+.off {
+  margin: 50px 0;
+  background-color: red;
+  &--img {
+    display: flex;
+    justify-content: space-between;
+    &__img {
+      h3 {
+        font-size: 14px;
+        letter-spacing: 0.03em;
+        font-weight: 700;
+        color: #a7b0c2;
+        margin-bottom: 8px;
+      }
+      input {
+        width: 450px;
+        height: 250px;
+        border: 1px solid #e5e5e5;
+        padding: 110px;
+      }
+      
+    }
+    
+  }
+}

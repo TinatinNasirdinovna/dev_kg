@@ -8,5 +8,6 @@ export interface IVacancyType {
     city: string;
     currency: string;
     salary: string;
-    position: string
+    position: string,
+    organization_icon: string
 }

@@ -49,7 +49,13 @@ const AddVacancy = () => {
       vacancyData.position === "" ||
       vacancyData.price_to === ""
     ) {
-      toastMessage("error", "Please, fill the empty fields!", "top-left", "colored", 2000);
+      toastMessage(
+        "error",
+        "Please, fill the empty fields!",
+        "top-left",
+        "colored",
+        2000
+      );
       return;
     }
     try {

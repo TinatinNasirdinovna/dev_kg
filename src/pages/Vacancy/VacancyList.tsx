@@ -12,6 +12,7 @@ const VacancyList = ({
   city,
   currency,
   salary,
+  organization_icon
 }: IVacancyType) => {
   const nav = useNavigate();
   return (
@@ -20,7 +21,7 @@ const VacancyList = ({
         <div className="preview images">
           <picture>
             <img
-              src="https://devkg.com/images/organizations/886e28d889f4c24ea73c66b80174110f.webp"
+              src={organization_icon}
               alt=""
             />
           </picture>
