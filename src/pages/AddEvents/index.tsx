@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Offline from "./Offline";
 
 const AddEvents = () => {
+
+  const [choosedFormat, setChoosedFormat] = useState<boolean>(false)
   return (
     <div id="addEvents">
       <div className="container">
         <div className="addEvents">
           <h1>Добавить новое мероприятие</h1>
-          <p>
+          <p className="addEvents--title">
             Мероприятие будет опубликовано на сайте и в телеграм канале после
             проверки модератором. Мероприятия откровенно рекламного характера
             или не связанные с IT и смежными темами будут отклоненны.
           </p>
-          <h2>Необходимо выбрать тип</h2>
-          <div className="addEvents--cards">
-            <div className="addEvents--cards__off">
+         <div className="" style={{display: choosedFormat ? 'none' : 'block'}}>
+         <h2>Необходимо выбрать тип</h2>
+          <div className="addEvents--cards" >
+            <div className="addEvents--cards__off" onClick={() => setChoosedFormat(true)}>
               <div className="addEvents--cards__off--img">
                 <img
                 src="https://devkg.com/js/img/not-found-events.b4ad3d2.svg"
@@ -29,7 +32,7 @@ const AddEvents = () => {
                 </p>
               </div>
             </div>
-            <div className="addEvents--cards__off">
+            <div className="addEvents--cards__off" onClick={() => setChoosedFormat(true)}>
               <div className="addEvents--cards__off--img">
                 <img
                 src="https://devkg.com/js/img/not-found-lives.9b8fa4b.svg"
@@ -45,7 +48,8 @@ const AddEvents = () => {
               </div>
             </div>
           </div>
-          <Offline/>
+         </div>
+          <Offline choosedFormat={choosedFormat}/>
         </div>
       </div>
     </div>
