@@ -39,19 +39,19 @@ const Offline: React.FC<OfflineProps> = ({ choosedFormat }) => {
   const handleGetDatas = async (e: React.FormEvent) => {
     e.preventDefault();
     if (
-      !name &&
-      !slug &&
-      !location &&
-      !date &&
-      !event_type &&
-      !button_type &&
-      !organization_name &&
-      !cover
+      !name ||
+      !slug ||
+      !location  ||
+      !date  ||
+      !event_type  ||
+      !button_type  ||
+      !organization_name  ||
+      !cover 
     ) {
       toastMessage(
         "error",
         "Please, fill the empty fields",
-        "top-center",
+        "top-left",
         "dark",
         2000
       );
@@ -183,7 +183,7 @@ const Offline: React.FC<OfflineProps> = ({ choosedFormat }) => {
             </div>
             <textarea
               onChange={getValues}
-              value={`The  - компания по разработке программного обеспечения.
+              value={`The  ${organization_name}- компания по разработке программного обеспечения.
 Основной деятельностью компании является проектирование, разработка цифровых сервисов и дизайн цифровых продуктов и сервисов, а именно серверной части, веб-сервисов, сайтов, мобильных приложений, ботов.
 Занимаемся аутсорс и аутстафф направлением.`}
               name="slug"
@@ -225,7 +225,7 @@ const Offline: React.FC<OfflineProps> = ({ choosedFormat }) => {
       </div>
       <div className="off--date">
         <h3>Веб-сайт</h3>
-        <input type="text" />
+        <input type="text"  />
       </div>
       <div className="off--date">
         <h3>Ссылка на регистрацию</h3>
