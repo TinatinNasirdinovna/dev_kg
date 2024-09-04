@@ -11,6 +11,8 @@ const VideoList = ({
   const nav = useNavigate();
 
   const filtered = cover_formats[0]?.url;
+ 
+  
   const date1 = new Date(date);
   const year = date1.getFullYear();
   const month = date1.toLocaleString("default", { month: "long" });
