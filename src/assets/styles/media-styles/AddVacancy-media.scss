@@ -1,0 +1,167 @@
+@media (max-width: 920px) {
+    #createVacancy  {
+        .createVacancy {
+            h1 {
+                font-size: 20px;
+            }
+            p {
+                margin: 5px 0 20px 0;
+                font-size: 12px;
+            }
+            h3 {
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
+            input {
+                font-size: 12px;
+            }
+            label {
+                font-size: 12px;
+                width: 60%;
+            }
+            select {
+                font-size: 12px;
+            }
+            &--description {
+             &__box {
+                &--left {
+                    &__icons {
+                        span {
+                            font-size: 15px;
+                            &:nth-child(4) {
+                                font-size: 20px;
+                              }
+                              &:last-child {
+                                font-size: 20px;
+                              }
+                        }
+                    }
+                    textarea {
+                        font-size: 12px;
+
+                    }
+                }
+             }   
+            }
+            button {
+                padding: 0;
+                min-width: 130px;
+                height: 30px;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    #createVacancy  {
+        .createVacancy {
+            select {
+                option {
+                    font-size: 12px;
+                }
+            }
+            &--description {
+             &__box {
+                &--left {
+                    &__icons {
+                        gap: 0;
+                        span {
+                            font-size: 12px;
+                            &:nth-child(4) {
+                                font-size: 15px;
+                              }
+                              &:last-child {
+                                font-size: 14px;
+                              }
+                        }
+                    }
+                    textarea {
+                        font-size: 12px;
+
+                    }
+                }
+             }   
+            }
+            &--price {
+                &__box {
+                    flex-direction: column;
+                    gap: 2px;
+                }
+            }
+            button {
+                padding: 0;
+                min-width: 130px;
+                height: 30px;
+                font-size: 12px;
+            }
+        }
+    }
+}
+@media (max-width: 552px) {
+    #createVacancy  {
+        .createVacancy {
+            h1 {
+                font-size: 18px;
+            }
+            p {
+                margin: 5px 0 20px 0;
+                font-size: 11px;
+            }
+            h3 {
+                font-size: 10px;
+                margin-bottom: 2px;
+            }
+            input {
+                font-size: 10px;
+                height: 27px;
+                width: 40%;
+            }
+            label {
+                font-size: 10px;
+                width: 60%;
+            }
+            select {
+                font-size: 10px; 
+                option {
+                    font-size: 10px;
+                }
+            }
+            &--description {
+             &__box {
+                &--left {
+                    width: 40%;
+                    &__icons {
+                        gap: 0;
+                        span {
+                            font-size: 10px;
+                            &:nth-child(4) {
+                                font-size: 11px;
+                              }
+                              &:last-child {
+                                font-size: 11px;
+                              }
+                        }
+                    }
+                    textarea {
+                        font-size: 10px;
+                        
+                    }
+                }
+             }   
+            }
+            &--price {
+                &__box {
+                    flex-direction: column;
+                    gap: 2px;
+                }
+            }
+            button {
+                padding: 0;
+                min-width: 130px;
+                height: 30px;
+                font-size: 12px;
+            }
+        }
+    }
+}
