@@ -3,10 +3,11 @@ import VideoList from "./VideoList";
 import Loading from "../../ui/Loading";
 import { VideoTypes } from "../../types";
 import { API } from "../../API";
+import { useNavigate } from "react-router-dom";
 
 const Video = () => {
   const {data, loading} = useFetch({url: `${API}meetups` })
-
+  const nav = useNavigate()
   if (loading) {
     return <Loading/>;
   }
@@ -15,7 +16,7 @@ const Video = () => {
       <div className="container">
         <div className="video">
           <div className="video--btn">
-            <button>Добавить видео</button>
+            <button onClick={() => nav('/addVideo')}>Добавить видео</button>
           </div>
           <h2>Все видео</h2>
           <div className="video--cards">
