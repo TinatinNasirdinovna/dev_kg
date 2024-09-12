@@ -1,0 +1,84 @@
+@media (max-width: 920px) {
+    .off {
+        &--img {
+            gap: 20px;
+            &__img {
+                input {
+                    width: 350px;
+                    height: 200px;
+                    padding: 0px;
+                }
+                p {
+                    font-size: 12px;
+                }
+            }
+            
+        }
+        &--description {
+            &__box {
+                gap: 12px;
+                &--left {
+                    width: 58%;
+                    &__icons {
+                        gap: 5px;
+                        span {
+                            font-size: 14px;
+                            &:nth-child(4) {
+                                font-size: 15px;
+                            }
+                            &:last-child {
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .off {
+        input {
+            margin-bottom: 10px;
+        }
+        label {
+            font-size: 13px;
+        }
+        &--img {
+            gap: 20px;
+            flex-direction: column;
+            &__img {
+                input {
+                    width: 250px;
+                    height: 200px;
+                    padding: 0px;
+                }
+                p {
+                    font-size: 12px;
+                }
+            }
+            
+        }
+        &--description {
+            &__box {
+                gap: 12px;
+                &--left {
+                    width: 58%;
+                    &__icons {
+                        gap: 5px;
+                        span {
+                            font-size: 14px;
+                            &:nth-child(4) {
+                                font-size: 15px;
+                            }
+                            &:last-child {
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@ import Offline from "./Offline";
 
 const AddEvents = () => {
 
-  const [choosedFormat, setChoosedFormat] = useState<boolean>(false)
+  const [choosedFormat, setChoosedFormat] = useState<boolean>(true)
   return (
     <div id="addEvents">
       <div className="container">
