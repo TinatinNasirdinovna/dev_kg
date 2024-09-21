@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { API } from "../API"
+import { useQuery } from "@tanstack/react-query"
 
 const jobs_url = `${API}jobs`
 const useFetch = ({
@@ -7,30 +8,26 @@ const useFetch = ({
 } = {
     url: jobs_url,
 }) => {
-    const [data, setData] = useState<any>([])
-    const [loading, setLoading] = useState(false)
 
     const fetchData = async () => {
-        setLoading(true)
         try{
             const response = await fetch(url)
             const data = await response.json()
             if(data.statusCode === 200) {                
-                setData(data.data);
+                return data.data
+            } else {
+                return []
             }
         } catch(error) {
             console.log(error);
         }
-        finally{
-            setLoading(false)
-        }
     }
+    const {data, isLoading } = useQuery({
+        queryKey: [url],
+        queryFn: () => fetchData(),
+    })
 
-    useEffect(() =>{
-        fetchData()
-    }, [])
-
-    return {data, loading}
+    return {data, loading: isLoading}
 }
 
 export default useFetch
